@@ -1,4 +1,12 @@
-FROM ubuntu:latest
-LABEL authors="furyj"
+version: "3"
+services:
+  mysqldb:
+    image: mysql:8
+    environment:
+      - MYSQL_DATABASE=MehdiMaarefDB
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
 
-ENTRYPOINT ["top", "-b"]
+  devopsproject:
+    image: mehdiimage
+    ports:
+      - "5052:8080"
